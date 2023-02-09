@@ -1,5 +1,5 @@
 .button-container {
-	min-width: 10rem;
+	min-width: 160px;
 	width: auto;
 	height: 50px;
 	letter-spacing: 0.5px;
@@ -37,8 +37,9 @@
 		color: white;
 
 		&:hover {
-			background-color: #357ae8;
-			border: none;
+			background-color: white;
+			color: #4285f4;
+			border: 1px solid #4285f4;
 		}
 	}
 
