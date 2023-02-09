@@ -3,6 +3,7 @@ import {
 	createUserDocumentAuth,
 	createUserWithEmailAndPasswordAuth,
 } from '../../utils/firebase/firebase.utils';
+import Button from '../button/button';
 import FormInput from '../form-input/form-input';
 
 import './sign-up-form.styles.scss';
@@ -92,7 +93,9 @@ const SignUpForm = () => {
 					minLength='3'
 				/>
 
-				<button type='submit'>Sign Up</button>
+				<Button type='submit' buttonType='primary'>
+					Sign Up
+				</Button>
 			</form>
 		</div>
 	);
