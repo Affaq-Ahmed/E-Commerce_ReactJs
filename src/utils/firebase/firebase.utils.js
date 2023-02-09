@@ -6,6 +6,7 @@ import {
 	GoogleAuthProvider,
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
+	signOut,
 } from 'firebase/auth';
 
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
@@ -20,6 +21,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
+// eslint-disable-next-line no-unused-vars
 const app = initializeApp(firebaseConfig);
 
 const provider = new GoogleAuthProvider();
@@ -77,5 +79,13 @@ export const signInWithEmailAndPasswordAuth = async (email, password) => {
 		return await signInWithEmailAndPassword(auth, email, password);
 	} catch (error) {
 		console.log('User Sign In Failed E&P', error);
+	}
+};
+
+export const signOutAuth = async () => {
+	try {
+		await signOut(auth);
+	} catch (error) {
+		console.log('Sign Out Failed', error);
 	}
 };
