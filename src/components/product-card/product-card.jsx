@@ -16,7 +16,7 @@ const ProductCard = ({ product }) => {
 			<img src={imageUrl} alt={name} />
 			<div className='footer'>
 				<span className='name'>{name}</span>
-				<span className='price'>Rs. {price}0</span>
+				<span className='price'>Rs. {price}</span>
 			</div>
 			<Button buttonType='inverted' onClick={addToCart}>
 				Add to Card
