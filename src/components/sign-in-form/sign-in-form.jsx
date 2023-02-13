@@ -52,7 +52,7 @@ const SignInForm = () => {
 					label='Email'
 					type='email'
 					name='email'
-					id='email'
+					id='si-email'
 					required
 					onChange={handleChange}
 					value={email}
@@ -62,7 +62,7 @@ const SignInForm = () => {
 					label='Password'
 					type='password'
 					name='password'
-					id='password'
+					id='si-password'
 					required
 					onChange={handleChange}
 					value={password}
