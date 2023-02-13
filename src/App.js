@@ -17,7 +17,7 @@ const App = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		function chuss() {
+		function wrapper() {
 			const unsubscribe = onAuthStateChangedListener((user) => {
 				if (user) {
 					createUserDocumentAuth(user);
@@ -27,7 +27,8 @@ const App = () => {
 
 			return unsubscribe;
 		}
-		chuss();
+
+		wrapper();
 	}, [dispatch]);
 
 	return (
