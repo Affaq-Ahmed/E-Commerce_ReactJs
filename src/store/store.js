@@ -21,7 +21,7 @@ const loggerMiddleware = (store) => (next) => (action) => {
 	console.log('next state: ', store.getState());
 };
 
-const middlewares = [loggerMiddleware];
+const middlewares = [loggerMiddleware, logger];
 
 const enhancers = [...middlewares];
 

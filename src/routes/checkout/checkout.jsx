@@ -1,10 +1,18 @@
-import { useContext } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import CheckoutItem from '../../components/checkout-item/checkout-item';
-import { CartContext } from '../../context/cart.context';
+import { clearCart } from '../../store/cart/cart.action';
+import {
+	selectCartItems,
+	selectCartTotal,
+} from '../../store/cart/cart.selector';
 import './checkout.styles.scss';
 
 const Checkout = () => {
-	const { cartItems, clearCart, total } = useContext(CartContext);
+	const dispatch = useDispatch();
+
+	const cartItems = useSelector(selectCartItems);
+	const total = useSelector(selectCartTotal);
+	const clearCartHandler = () => dispatch(clearCart());
 
 	return (
 		<div className='checkout-container'>
@@ -29,7 +37,7 @@ const Checkout = () => {
 				return <CheckoutItem key={item.id} item={item} />;
 			})}
 			<span className='total'>{`Total: $${total}`}</span>
-			<span className='clear-cart' onClick={clearCart}>
+			<span className='clear-cart' onClick={clearCartHandler}>
 				Clear Cart
 			</span>
 		</div>
