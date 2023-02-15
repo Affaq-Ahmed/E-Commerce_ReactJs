@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import {
-	createUserDocumentAuth,
-	signInWithGooglePopup,
-	signInWithEmailAndPasswordAuth,
-} from '../../utils/firebase/firebase.utils';
+	googleSignIn,
+	signInWithEmailAndPassword,
+} from '../../store/user/user.action';
+
 import Button from '../button/button';
 import FormInput from '../form-input/form-input';
 
@@ -15,6 +16,8 @@ const defaultFormFields = {
 };
 
 const SignInForm = () => {
+	const dispatch = useDispatch();
+
 	const [formFields, setFormFields] = useState(defaultFormFields);
 	const { email, password } = formFields;
 
@@ -22,7 +25,7 @@ const SignInForm = () => {
 		event.preventDefault();
 
 		try {
-			const { user } = await signInWithEmailAndPasswordAuth(email, password);
+			dispatch(signInWithEmailAndPassword(email, password));
 			setFormFields(defaultFormFields);
 		} catch (error) {
 			if (error.code === 'auth/user-not-found') {
@@ -35,7 +38,7 @@ const SignInForm = () => {
 	};
 
 	const signInGoogleUser = async () => {
-		await signInWithGooglePopup();
+		dispatch(googleSignIn());
 	};
 
 	const handleChange = (event) => {
