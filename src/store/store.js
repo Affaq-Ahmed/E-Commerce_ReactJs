@@ -16,6 +16,14 @@ const middlewares = [process.env.NODE_ENV === 'development' && logger].filter(
 	Boolean
 );
 
+// const composeEnhancer =
+// 	(process.env.NODE_ENV !== 'production' &&
+// 		window &&
+// 		window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+// 	compose;
+
+// const enhancers = composeEnhancer(...middlewares);
+
 const enhancers = [...middlewares];
 
 export const store = configureStore({
