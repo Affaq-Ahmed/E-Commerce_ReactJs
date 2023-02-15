@@ -14,9 +14,10 @@ const CheckoutItem = ({ item }) => {
 
 	const dispatch = useDispatch();
 
-	const removeItemHandler = dispatch(removeItemFromCart(cartItems, item));
-	const addItemHandler = dispatch(addItemToCart(cartItems, item));
-	const subtractItemHandler = dispatch(subtractItemFromCart(cartItems, item));
+	const removeItemHandler = () => dispatch(removeItemFromCart(cartItems, item));
+	const addItemHandler = () => dispatch(addItemToCart(cartItems, item));
+	const subtractItemHandler = () =>
+		dispatch(subtractItemFromCart(cartItems, item));
 
 	return (
 		<div className='checkout-item-container'>

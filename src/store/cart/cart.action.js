@@ -1,4 +1,4 @@
-import { createAction } from '@reduxjs/toolkit';
+import { createAction } from '../../utils/reducer/reducer.utils';
 import { CART_ACTION_TYPES } from './cart.types';
 
 const addCartItem = (cartItems, cartItemToAdd) => {
@@ -43,7 +43,6 @@ export const setIsCartOpen = (isCartOpen) => {
 
 export const addItemToCart = (cartItems, itemToAdd) => {
 	const newCartItems = addCartItem(cartItems, itemToAdd);
-	console.log('After func', { cartItems });
 	return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, newCartItems);
 };
 

@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
 
 	const dispatch = useDispatch();
 
-	const addToCart = () => dispatch(addItemToCart(cartItems, product));
+	const addToCart = () => dispatch(addItemToCart(cartItems,product));
 
 	return (
 		<div className='product-card-container'>

@@ -10,6 +10,7 @@ const CategoryPreview = ({ title, products }) => {
 					{title.toUpperCase()}
 				</Link>
 			</h2>
+			
 			<div className='preview'>
 				{products
 					.filter((_, index) => index < 4)
