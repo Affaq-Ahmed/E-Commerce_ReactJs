@@ -11,20 +11,8 @@ export const userReducer = (state = INITIAL_STATE, action) => {
 
 	switch (type) {
 		case USER_ACTION_TYPES.CHECK_USER_SESSION:
-			return {
-				...state,
-				isLoading: true,
-			};
 		case USER_ACTION_TYPES.GOOGLE_SIGN_IN:
-			return {
-				...state,
-				isLoading: true,
-			};
 		case USER_ACTION_TYPES.SIGN_IN_WITH_EMAIL_AND_PASSWORD:
-			return {
-				...state,
-				isLoading: true,
-			};
 		case USER_ACTION_TYPES.SIGN_UP_START:
 			return {
 				...state,
