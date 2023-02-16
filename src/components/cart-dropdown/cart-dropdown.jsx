@@ -1,9 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { toggleCart } from '../../store/cart/cart.action';
+import { toggleCart } from '../../store/cart/cart.reducer';
 import {
 	selectCartItems,
-	selectIsCartOpen,
 } from '../../store/cart/cart.selector';
 
 import Button from '../button/button';
@@ -15,9 +14,8 @@ const CartDropdown = () => {
 	const navigate = useNavigate();
 
 	const cartItems = useSelector(selectCartItems);
-	const isCartOpen = useSelector(selectIsCartOpen);
 
-	const toggleCartHandler = () => dispatch(toggleCart(!isCartOpen));
+	const toggleCartHandler = () => dispatch(toggleCart());
 
 	const gotoCheckoutHandler = () => {
 		toggleCartHandler();

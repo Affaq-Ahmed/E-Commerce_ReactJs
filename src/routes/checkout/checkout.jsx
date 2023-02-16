@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import CheckoutItem from '../../components/checkout-item/checkout-item';
-import { clearCart } from '../../store/cart/cart.action';
+import { clearCart } from '../../store/cart/cart.reducer';
 import {
 	selectCartItems,
 	selectCartTotal,
