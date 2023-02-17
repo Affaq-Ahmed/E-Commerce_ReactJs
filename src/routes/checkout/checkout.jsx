@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import CheckoutItem from '../../components/checkout-item/checkout-item';
+import PaymentForm from '../../components/payment-form/payment-form';
 import { clearCart } from '../../store/cart/cart.action';
 import {
 	selectCartItems,
@@ -40,6 +41,8 @@ const Checkout = () => {
 			<span className='clear-cart' onClick={clearCartHandler}>
 				Clear Cart
 			</span>
+
+			<PaymentForm />
 		</div>
 	);
 };

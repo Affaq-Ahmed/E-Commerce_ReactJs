@@ -6,13 +6,14 @@ const BUTTON_TYPE_CLASSES = {
 	primary: 'primary',
 };
 
-const Button = ({ children, buttonType, ...otherProps }) => {
+const Button = ({ children, buttonType, isLoading, ...otherProps }) => {
 	return (
 		<button
 			className={`button-container ${BUTTON_TYPE_CLASSES[buttonType]}`}
+			disabled={isLoading}
 			{...otherProps}
 		>
-			{children}
+			{isLoading ? <span className='spinner'></span> : children}
 		</button>
 	);
 };
