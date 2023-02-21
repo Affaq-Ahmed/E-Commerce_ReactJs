@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -10,11 +11,17 @@ import {
 
 import './category.styles.scss';
 
+type CategoryRouteParams = {
+	category: string;
+};
+
 const Category = () => {
-	const { category } = useParams();
+	const { category } = useParams<
+		keyof CategoryRouteParams
+	>() as CategoryRouteParams;
 	const categories = useSelector(selectCategoriesMap);
 	const isLoading = useSelector(selectIsCategoriesLoading);
-	const [products, setProducts] = useState([]);
+	const [products, setProducts] = useState(categories[category]);
 
 	useEffect(() => {
 		setProducts(categories[category]);
