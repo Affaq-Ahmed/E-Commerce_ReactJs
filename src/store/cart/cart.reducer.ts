@@ -12,17 +12,20 @@ const INITIAL_STATE: CartState = {
 	cartItems: [],
 };
 
-export const cartReducer = (state = INITIAL_STATE, action: AnyAction) => {
+export const cartReducer = (
+	state = INITIAL_STATE,
+	action: AnyAction
+): CartState => {
 	if (setIsCartOpen.match(action)) {
 		return {
 			...state,
-			isCartOpen: action.payload,
+			isCartOpen: action.payload || !state.isCartOpen,
 		};
 	}
 	if (setCartItems.match(action)) {
 		return {
 			...state,
-			cartItems: action.payload,
+			cartItems: action.payload || [],
 		};
 	}
 	return state;

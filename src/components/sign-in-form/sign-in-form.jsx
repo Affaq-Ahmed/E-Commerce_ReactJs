@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {
-	googleSignIn,
+	googleSignInStart,
 	signInWithEmailAndPassword,
 } from '../../store/user/user.action';
 
@@ -38,7 +38,7 @@ const SignInForm = () => {
 	};
 
 	const signInGoogleUser = async () => {
-		dispatch(googleSignIn());
+		dispatch(googleSignInStart());
 	};
 
 	const handleChange = (event) => {

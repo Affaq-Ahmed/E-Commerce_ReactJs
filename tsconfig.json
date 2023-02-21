@@ -14,13 +14,15 @@
     "experimentalDecorators": true,            /* Enable support for experimental decorators */
     "emitDecoratorMetadata": true,             /* Emit metadata for decorators */
     "skipLibCheck": true,                      /* Skip type checking of library files to speed up compilation */
-    "noUnusedLocals": true,                    /* Report errors on unused local variables */
+    "noUnusedLocals": false,                    /* Report errors on unused local variables */
     "noUnusedParameters": true,                /* Report errors on unused function parameters */
     "noImplicitReturns": true,                 /* Report errors on functions without a return statement */
     "noFallthroughCasesInSwitch": true,        /* Report errors on fallthrough cases in switch statements */
     "noImplicitAny": true,                     /* Report errors on expressions and declarations with an implied 'any' type */
     "allowJs": true,                           /* Allow JavaScript files to be a part of your program */
     "resolveJsonModule": true,                 /* Allow importing .json files */
+    //allow unused variables
+
 
     /* Advanced Options */
     "forceConsistentCasingInFileNames": true,  /* Ensure consistent case for file names */
