@@ -53,7 +53,6 @@ export type objectsToAdd = {
 	title: string;
 };
 
-// this function writes the data on db for the store
 export const addCollectionAndDocuments = async <T extends objectsToAdd>(
 	collectionKey: string,
 	objectsToAdd: T[]
