@@ -36,7 +36,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
 const app = initializeApp(firebaseConfig);
 
 const provider = new GoogleAuthProvider();

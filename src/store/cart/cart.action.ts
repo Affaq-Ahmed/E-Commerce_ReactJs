@@ -1,7 +1,6 @@
 import {
 	createAction,
 	withMatcher,
-	Action,
 	ActionWithPayload,
 } from '../../utils/reducer/reducer.utils';
 import { CategoryItem } from '../categories/category.types';
