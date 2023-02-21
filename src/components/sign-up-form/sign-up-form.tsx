@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { AuthError, AuthErrorCodes } from 'firebase/auth';
+import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { signUpStart } from '../../store/user/user.action';
 
-import Button from '../button/button';
+import Button, { BUTTON_TYPE_CLASSES } from '../button/button';
 import FormInput from '../form-input/form-input';
 
 import './sign-up-form.styles.scss';
@@ -19,7 +20,7 @@ const SignUpForm = () => {
 	const [formFields, setFormFields] = useState(defaultFormFields);
 	const { displayName, email, password, confirmPassword } = formFields;
 
-	const handleSubmit = async (event) => {
+	const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
 		if (password !== confirmPassword) {
@@ -30,14 +31,14 @@ const SignUpForm = () => {
 		try {
 			dispatch(signUpStart(email, password, displayName));
 			setFormFields(defaultFormFields);
-		} catch (error) {
-			if (error.code === 'auth/email-already-in-use')
-				alert('Cannot create User', 'Email already in use.');
+		} catch (error: any) {
+			if ((error as AuthError).code === AuthErrorCodes.EMAIL_EXISTS)
+				alert('Cannot create User Email already in use.');
 			else console.error('User Creation Error', error);
 		}
 	};
 
-	const handleChange = (event) => {
+	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = event.target;
 		setFormFields({ ...formFields, [name]: value });
 	};
@@ -75,7 +76,7 @@ const SignUpForm = () => {
 					required
 					onChange={handleChange}
 					value={password}
-					minLength='3'
+					minLength={3}
 				/>
 
 				<FormInput
@@ -86,10 +87,10 @@ const SignUpForm = () => {
 					required
 					onChange={handleChange}
 					value={confirmPassword}
-					minLength='3'
+					minLength={3}
 				/>
 
-				<Button type='submit' buttonType='primary'>
+				<Button type='submit' buttonType={BUTTON_TYPE_CLASSES.primary}>
 					Sign Up
 				</Button>
 			</form>

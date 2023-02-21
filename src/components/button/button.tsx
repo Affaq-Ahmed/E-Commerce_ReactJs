@@ -18,12 +18,9 @@ const Button: FC<ButtonProps> = ({
 	isLoading,
 	...otherProps
 }) => {
-	//get the button type class
-	const buttonTypeClass =
-		BUTTON_TYPE_CLASSES[buttonType as keyof typeof BUTTON_TYPE_CLASSES];
 	return (
 		<button
-			className={`button-container ${buttonTypeClass}`}
+			className={`button-container ${buttonType}`}
 			disabled={isLoading}
 			{...otherProps}
 		>
