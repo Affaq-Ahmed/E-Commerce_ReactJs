@@ -6,6 +6,7 @@ import {
 	selectIsCartOpen,
 } from '../../store/cart/cart.selector';
 import { setIsCartOpen } from '../../store/cart/cart.action';
+import React from 'react';
 
 const CartIcon = () => {
 	const dispatch = useDispatch();
